@@ -1,8 +1,11 @@
 extends KinematicBody2D
 
+
 const GRAVIDADE = 4000
+const ACCEL = 0.4
 var velocidade = Vector2.ZERO
-var speed = 500
+var speed = 400
+
 
 var jump_force = 1200
 var jump_count = 2
@@ -17,6 +20,8 @@ func _physics_process(delta):
 	# Aplicaçao da gravidade
 	velocidade.y += GRAVIDADE * delta
 	
+	
+	
 	# Direcao do player
 	if Input.is_action_pressed("left"):
 		dir = -1
@@ -26,8 +31,21 @@ func _physics_process(delta):
 		dir = 1
 		$sprite.flip_h = true
 		
+	
+		
 	# Aplicacao da velocidade
-	velocidade.x = dir * speed
+	#velocidade.x = dir * speed
+	
+	
+	# Aceleracao do personagem
+	if dir != 0:
+		velocidade.x = lerp(velocidade.x, dir * speed, ACCEL)
+	else:
+		if is_on_floor():
+			velocidade.x = lerp(velocidade.x, 0, ACCEL/2)
+		else:
+			velocidade.x = lerp(velocidade.x, 0, ACCEL/20)
+		
 	
 	# Reset pulos
 	if is_on_floor():
