@@ -3,7 +3,9 @@ extends KinematicBody2D
 const GRAVIDADE = 4000
 var velocidade = Vector2.ZERO
 var speed = 500
+
 var jump_force = 1200
+var jump_count = 2
 
 func _ready():
 	pass
@@ -27,9 +29,22 @@ func _physics_process(delta):
 	# Aplicacao da velocidade
 	velocidade.x = dir * speed
 	
-	#Pesonagem saltando
-	if Input.is_action_just_pressed("jump"):
+	# Reset pulos
+	if is_on_floor():
+		jump_count = 2
+		
+		
+	
+	#Pesonagem saltando estando no chao
+	if Input.is_action_just_pressed("jump") and jump_count > 0:
 		jump()
+		jump_count -= 1
+	
+	#Pesonagem saltando quando está caindo
+	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		jump_count -= 2
+	
+	
 	
 		
 	# Movimentacao
