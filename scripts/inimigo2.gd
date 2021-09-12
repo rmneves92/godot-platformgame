@@ -11,24 +11,21 @@ func _process(delta):
 	if !$dir.is_colliding():
 		dir *= -1
 		
-	if vivo:
+	if vivo: 
 		if $move.is_colliding() and dir == 1:
-			scale.x = -1
+			scale.x = 1
 			position.x += velocidade * delta
 		else:
-			scale.x = 1 
+			scale.x = -1 
 			position.x -= velocidade * delta
 
 
-func _on_inimigo1_area_entered(area):
+func _on_inimigo2_area_entered(area):
 	if area.name == "jump":
 		area.get_parent().jump()
-		$anim.play("die")
 		die()
-
-
+		
 func die():
-	position.y -= 10
 	vivo = false
 	$anim.play("die")
 	$shape.queue_free()

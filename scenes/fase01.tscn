@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/assets_cenario/canto_esquerdo_parede_horizontal.png" type="Texture" id=1]
 [ext_resource path="res://assets/assets_cenario/canto_parede_horizontal.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/assets_cenario/parede_vertical.png" type="Texture" id=9]
 [ext_resource path="res://scenes/player.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/inimigo1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/inimigo2.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.00461894, 0.6097 )
@@ -233,3 +234,7 @@ position = Vector2( 83.3917, 168.97 )
 position = Vector2( 787.776, 297.09 )
 dir = -1
 velocidade = 70
+
+[node name="inimigo3" parent="inimigos" instance=ExtResource( 12 )]
+position = Vector2( 333.139, 150.936 )
+velocidade = 60

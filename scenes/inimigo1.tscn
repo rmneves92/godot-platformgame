@@ -71,3 +71,5 @@ enabled = true
 [node name="move" type="RayCast2D" parent="."]
 position = Vector2( 0, 0.119522 )
 enabled = true
+
+[connection signal="area_entered" from="." to="." method="_on_inimigo1_area_entered"]
