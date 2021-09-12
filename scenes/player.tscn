@@ -109,7 +109,7 @@ flip_h = true
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "running"
-frame = 11
+frame = 2
 playing = true
 flip_h = true
 
