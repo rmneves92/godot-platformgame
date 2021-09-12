@@ -1,7 +1,74 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://assets/anim_player/idle/0001.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
+[ext_resource path="res://assets/anim_player/idle/0007.png" type="Texture" id=3]
+[ext_resource path="res://assets/anim_player/idle/0011.png" type="Texture" id=4]
+[ext_resource path="res://assets/anim_player/idle/0018.png" type="Texture" id=5]
+[ext_resource path="res://assets/anim_player/idle/0006.png" type="Texture" id=6]
+[ext_resource path="res://assets/anim_player/idle/0009.png" type="Texture" id=7]
+[ext_resource path="res://assets/anim_player/idle/0012.png" type="Texture" id=8]
+[ext_resource path="res://assets/anim_player/idle/0014.png" type="Texture" id=9]
+[ext_resource path="res://assets/anim_player/idle/0008.png" type="Texture" id=10]
+[ext_resource path="res://assets/anim_player/idle/0005.png" type="Texture" id=11]
+[ext_resource path="res://assets/anim_player/idle/0019.png" type="Texture" id=12]
+[ext_resource path="res://assets/anim_player/idle/0015.png" type="Texture" id=13]
+[ext_resource path="res://assets/anim_player/idle/0016.png" type="Texture" id=14]
+[ext_resource path="res://assets/anim_player/idle/0003.png" type="Texture" id=15]
+[ext_resource path="res://assets/anim_player/idle/0004.png" type="Texture" id=16]
+[ext_resource path="res://assets/anim_player/idle/0010.png" type="Texture" id=17]
+[ext_resource path="res://assets/anim_player/idle/0013.png" type="Texture" id=18]
+[ext_resource path="res://assets/anim_player/idle/0017.png" type="Texture" id=19]
+[ext_resource path="res://assets/anim_player/idle/0002.png" type="Texture" id=20]
+[ext_resource path="res://assets/anim_player/running/0006.png" type="Texture" id=21]
+[ext_resource path="res://assets/anim_player/jump/0003.png" type="Texture" id=22]
+[ext_resource path="res://assets/anim_player/running/0009.png" type="Texture" id=23]
+[ext_resource path="res://assets/anim_player/running/0003.png" type="Texture" id=24]
+[ext_resource path="res://assets/anim_player/jump/0005.png" type="Texture" id=25]
+[ext_resource path="res://assets/anim_player/running/0011.png" type="Texture" id=26]
+[ext_resource path="res://assets/anim_player/running/0002.png" type="Texture" id=27]
+[ext_resource path="res://assets/anim_player/running/0008.png" type="Texture" id=28]
+[ext_resource path="res://assets/anim_player/running/0005.png" type="Texture" id=29]
+[ext_resource path="res://assets/anim_player/running/0015.png" type="Texture" id=30]
+[ext_resource path="res://assets/anim_player/running/0004.png" type="Texture" id=31]
+[ext_resource path="res://assets/anim_player/jump/0014.png" type="Texture" id=32]
+[ext_resource path="res://assets/anim_player/jump/0012.png" type="Texture" id=33]
+[ext_resource path="res://assets/anim_player/running/0014.png" type="Texture" id=34]
+[ext_resource path="res://assets/anim_player/jump/0004.png" type="Texture" id=35]
+[ext_resource path="res://assets/anim_player/jump/0007.png" type="Texture" id=36]
+[ext_resource path="res://assets/anim_player/jump/0015.png" type="Texture" id=37]
+[ext_resource path="res://assets/anim_player/running/0000.png" type="Texture" id=38]
+[ext_resource path="res://assets/anim_player/running/0007.png" type="Texture" id=39]
+[ext_resource path="res://assets/anim_player/running/0001.png" type="Texture" id=40]
+[ext_resource path="res://assets/anim_player/jump/0001.png" type="Texture" id=41]
+[ext_resource path="res://assets/anim_player/jump/0011.png" type="Texture" id=42]
+[ext_resource path="res://assets/anim_player/running/0012.png" type="Texture" id=43]
+[ext_resource path="res://assets/anim_player/running/0013.png" type="Texture" id=44]
+[ext_resource path="res://assets/anim_player/jump/0009.png" type="Texture" id=45]
+[ext_resource path="res://assets/anim_player/jump/0016.png" type="Texture" id=46]
+[ext_resource path="res://assets/anim_player/jump/0008.png" type="Texture" id=47]
+[ext_resource path="res://assets/anim_player/jump/0006.png" type="Texture" id=48]
+[ext_resource path="res://assets/anim_player/jump/0010.png" type="Texture" id=49]
+[ext_resource path="res://assets/anim_player/jump/0013.png" type="Texture" id=50]
+[ext_resource path="res://assets/anim_player/running/0010.png" type="Texture" id=51]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 41 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 25 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 47 ), ExtResource( 45 ), ExtResource( 49 ), ExtResource( 42 ), ExtResource( 33 ), ExtResource( 50 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "jump",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 20 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "idle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 38 ), ExtResource( 40 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 39 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 51 ), ExtResource( 26 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 34 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "running",
+"speed": 24.0
+} ]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 18.8334
@@ -11,8 +78,15 @@ height = 47.5639
 script = ExtResource( 2 )
 
 [node name="sprite" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
+flip_h = true
+
+[node name="anim" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "jump"
 flip_h = true
 
 [node name="shape" type="CollisionShape2D" parent="."]

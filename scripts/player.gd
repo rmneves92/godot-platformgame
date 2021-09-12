@@ -6,7 +6,7 @@ const ACCEL = 0.4
 var velocidade = Vector2.ZERO
 var speed = 400
 
-
+var is_jumping = false
 var jump_force = 1200
 var jump_count = 2
 
@@ -25,11 +25,11 @@ func _physics_process(delta):
 	# Direcao do player
 	if Input.is_action_pressed("left"):
 		dir = -1
-		$sprite.flip_h = false
+		$anim.flip_h = false
 	
 	if Input.is_action_pressed("right"):
 		dir = 1
-		$sprite.flip_h = true
+		$anim.flip_h = true
 		
 	
 		
@@ -49,17 +49,31 @@ func _physics_process(delta):
 	
 	# Reset pulos
 	if is_on_floor():
+		is_jumping = false
 		jump_count = 2
 		
+		
+	# Animacao do personagem
+	if dir != 0 and not is_jumping and is_on_floor():
+		$anim.play("running")
+	elif is_jumping:
+		$anim.play("jump")
+	elif not is_on_floor():
+		$anim.play("jump")
+	else:
+		$anim.play("idle")
+
 		
 	
 	#Pesonagem saltando estando no chao
 	if Input.is_action_just_pressed("jump") and jump_count > 0:
-		jump()
+		is_jumping = true
 		jump_count -= 1
+		jump()
 	
 	#Pesonagem saltando quando está caindo
 	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		is_jumping = true
 		jump_count -= 2
 	
 	
