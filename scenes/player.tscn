@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://assets/anim_player/idle/0001.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://assets/anim_player/idle/0010.png" type="Texture" id=17]
 [ext_resource path="res://assets/anim_player/idle/0013.png" type="Texture" id=18]
 [ext_resource path="res://assets/anim_player/idle/0017.png" type="Texture" id=19]
+[ext_resource path="res://assets/particles/nuven_cinza.png" type="Texture" id=20]
 [ext_resource path="res://assets/anim_player/running/0006.png" type="Texture" id=21]
 [ext_resource path="res://assets/anim_player/jump/0003.png" type="Texture" id=22]
 [ext_resource path="res://assets/anim_player/running/0009.png" type="Texture" id=23]
@@ -73,6 +74,28 @@ animations = [ {
 radius = 18.8334
 height = 47.5639
 
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.479675, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 0.0908077 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.304415, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+flag_disable_z = true
+gravity = Vector3( -100, -100, 0 )
+initial_velocity = 40.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 4 )
+
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
 
@@ -85,11 +108,18 @@ flip_h = true
 [node name="anim" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
-animation = "jump"
-frame = 14
+animation = "running"
+frame = 11
 playing = true
 flip_h = true
 
 [node name="shape" type="CollisionShape2D" parent="."]
 position = Vector2( -1.15472, 0.384903 )
 shape = SubResource( 2 )
+
+[node name="smoke" type="Particles2D" parent="."]
+position = Vector2( -22.3232, 44.3564 )
+emitting = false
+local_coords = false
+process_material = SubResource( 9 )
+texture = ExtResource( 20 )

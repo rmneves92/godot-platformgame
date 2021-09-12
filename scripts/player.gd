@@ -20,17 +20,12 @@ func _physics_process(delta):
 	# Aplicaçao da gravidade
 	velocidade.y += GRAVIDADE * delta
 	
-	
-	
 	# Direcao do player
-	
 	dir = Input.get_action_strength("right") - Input.get_action_strength("left")
 	if dir > 0:
 		$anim.flip_h = true
 	if dir < 0:
 		$anim.flip_h = false
-		
-		
 		
 	# Aplicacao da velocidade
 	#velocidade.x = dir * speed
@@ -51,6 +46,11 @@ func _physics_process(delta):
 		is_jumping = false
 		jump_count = 2
 		
+	# Smoke
+	if dir != 0 and is_on_floor():
+		$smoke.emitting = true
+	else:
+		$smoke.emitting = false
 		
 	# Animacao do personagem
 	if dir != 0 and not is_jumping and is_on_floor():
