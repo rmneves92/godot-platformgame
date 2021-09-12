@@ -23,15 +23,14 @@ func _physics_process(delta):
 	
 	
 	# Direcao do player
-	if Input.is_action_pressed("left"):
-		dir = -1
-		$anim.flip_h = false
 	
-	if Input.is_action_pressed("right"):
-		dir = 1
+	dir = Input.get_action_strength("right") - Input.get_action_strength("left")
+	if dir > 0:
 		$anim.flip_h = true
+	if dir < 0:
+		$anim.flip_h = false
 		
-	
+		
 		
 	# Aplicacao da velocidade
 	#velocidade.x = dir * speed
