@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://assets/anim_player/idle/0001.png" type="Texture" id=1]
 [ext_resource path="res://scripts/player.gd" type="Script" id=2]
@@ -54,9 +54,9 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 12 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 40 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 39 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 51 ), ExtResource( 26 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 34 ), ExtResource( 30 ) ],
 "loop": true,
-"name": "idle",
+"name": "running",
 "speed": 24.0
 }, {
 "frames": [ ExtResource( 41 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 25 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 47 ), ExtResource( 45 ), ExtResource( 49 ), ExtResource( 42 ), ExtResource( 33 ), ExtResource( 50 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 46 ) ],
@@ -64,15 +64,15 @@ animations = [ {
 "name": "jump",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 40 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 21 ), ExtResource( 39 ), ExtResource( 28 ), ExtResource( 23 ), ExtResource( 51 ), ExtResource( 26 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 34 ), ExtResource( 30 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 12 ) ],
 "loop": true,
-"name": "running",
+"name": "idle",
 "speed": 24.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 18.8334
-height = 47.5639
+radius = 22.5061
+height = 42.0388
 
 [sub_resource type="Gradient" id=3]
 offsets = PoolRealArray( 0, 0.479675, 1 )
@@ -81,23 +81,40 @@ colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 [sub_resource type="GradientTexture" id=4]
 gradient = SubResource( 3 )
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=5]
 _data = [ Vector2( 0, 0.0908077 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.304415, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
+[sub_resource type="CurveTexture" id=6]
+curve = SubResource( 5 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=7]
 flag_disable_z = true
 gravity = Vector3( -100, -100, 0 )
 initial_velocity = 40.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-scale_curve = SubResource( 8 )
+scale_curve = SubResource( 6 )
 color_ramp = SubResource( 4 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 13.3795, 4.85023 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "danos"
+length = 2.0
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -122,11 +139,14 @@ shape = SubResource( 2 )
 position = Vector2( -22.3232, 44.3564 )
 emitting = false
 local_coords = false
-process_material = SubResource( 9 )
+process_material = SubResource( 7 )
 texture = ExtResource( 20 )
 
 [node name="jump" type="Area2D" parent="."]
 
 [node name="shape" type="CollisionShape2D" parent="jump"]
 position = Vector2( -1.30685, 51.2281 )
-shape = SubResource( 10 )
+shape = SubResource( 8 )
+
+[node name="anim_danos" type="AnimationPlayer" parent="."]
+anims/danos = SubResource( 9 )

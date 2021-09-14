@@ -10,6 +10,8 @@ var is_jumping = false
 var jump_force = 1200
 var jump_count = 2
 
+var danos = false
+
 func _ready():
 	pass
 
@@ -75,9 +77,6 @@ func _physics_process(delta):
 		is_jumping = true
 		jump_count -= 2
 	
-	
-	
-		
 	# Movimentacao
 	# Vector2.UP = Vector2(0, -1) = Face da plataforma pra cima
 	velocidade = move_and_slide(velocidade, Vector2.UP)
@@ -85,3 +84,15 @@ func _physics_process(delta):
 	
 func jump():
 	velocidade.y = -jump_force
+	
+func receber_dano():
+	# Entrar do estado de dano
+	
+	danos = true
+	$anim_danos.play("danos")
+	yield($anim_danos, "animation_finished")
+	
+	# Sair do estado de dano
+	danos = false
+		
+	

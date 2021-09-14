@@ -21,11 +21,10 @@ func _process(delta):
 
 
 func _on_inimigo1_area_entered(area):
-	if area.name == "jump":
+	if area.name == "jump" and  area.get_parent().danos == false:
 		area.get_parent().jump()
 		$anim.play("die")
 		die()
-
 
 func die():
 	position.y -= 10
@@ -35,3 +34,9 @@ func die():
 	yield($anim, "animation_finished")
 	queue_free()
 	
+
+
+func _on_inimigo1_body_entered(body):
+	if body.name == "player":
+		body.get_node("anim_danos").play("danos")
+		body.receber_dano()

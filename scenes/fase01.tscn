@@ -236,5 +236,5 @@ dir = -1
 velocidade = 70
 
 [node name="inimigo3" parent="inimigos" instance=ExtResource( 12 )]
-position = Vector2( 333.139, 150.936 )
+position = Vector2( 332.367, 155.571 )
 velocidade = 60

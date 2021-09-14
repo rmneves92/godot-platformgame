@@ -83,7 +83,7 @@ script = ExtResource( 12 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "walking"
-frame = 24
+frame = 19
 speed_scale = 1.2
 playing = true
 
@@ -100,3 +100,4 @@ position = Vector2( 6.48257, 0.185219 )
 enabled = true
 
 [connection signal="area_entered" from="." to="." method="_on_inimigo2_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_inimigo2_body_entered"]
