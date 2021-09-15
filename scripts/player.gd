@@ -14,6 +14,10 @@ var danos = false
 
 func _ready():
 	pass
+	
+# Plataforma
+var plataforma = false
+var nome_plataforma
 
 func _physics_process(delta):
 	
@@ -28,6 +32,12 @@ func _physics_process(delta):
 		$anim.flip_h = true
 	if dir < 0:
 		$anim.flip_h = false
+	
+	# Seguir a plataforma
+	if dir == 0:
+		if plataforma:
+			velocidade.x = get_parent().get_node(nome_plataforma).vel * 1.25
+		
 		
 	# Aplicacao da velocidade
 	#velocidade.x = dir * speed
@@ -96,3 +106,12 @@ func receber_dano():
 	danos = false
 		
 	
+
+
+func _on_jump_area_entered(area):
+	if area.get_parent().is_in_group("plat"):
+		plataforma = true;
+		nome_plataforma = area.get_parent().name
+
+func _on_jump_area_exited(area):
+	plataforma = false

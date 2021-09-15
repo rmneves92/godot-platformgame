@@ -282,7 +282,7 @@ position = Vector2( 0.440125, 31.8351 )
 shape = SubResource( 16 )
 
 [node name="plataforma" type="StaticBody2D" parent="."]
-position = Vector2( 634.928, 104.623 )
+position = Vector2( 494.026, 184.693 )
 script = ExtResource( 23 )
 lado = -1
 
@@ -300,8 +300,9 @@ position = Vector2( 0.661499, -1.32301 )
 shape = SubResource( 18 )
 
 [node name="plataforma2" type="StaticBody2D" parent="."]
-position = Vector2( 425.714, 203.957 )
+position = Vector2( 761.069, 121.936 )
 script = ExtResource( 23 )
+lado = -1
 
 [node name="sprite" type="Sprite" parent="plataforma2"]
 texture = ExtResource( 22 )

@@ -8,6 +8,7 @@ var dir = 1
 export var lado = 1
 
 func _ready():
+	add_to_group("plat")
 	if lado == 1:
 		pos_inicial = position
 		pos_final = pos_inicial + Vector2(distancia * dir, 0)

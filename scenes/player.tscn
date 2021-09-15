@@ -59,14 +59,14 @@ animations = [ {
 "name": "running",
 "speed": 24.0
 }, {
-"frames": [ ExtResource( 41 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 25 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 47 ), ExtResource( 45 ), ExtResource( 49 ), ExtResource( 42 ), ExtResource( 33 ), ExtResource( 50 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 46 ) ],
-"loop": false,
-"name": "jump",
-"speed": 24.0
-}, {
 "frames": [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 11 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 17 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 18 ), ExtResource( 9 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 19 ), ExtResource( 5 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "idle",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 41 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 25 ), ExtResource( 48 ), ExtResource( 36 ), ExtResource( 47 ), ExtResource( 45 ), ExtResource( 49 ), ExtResource( 42 ), ExtResource( 33 ), ExtResource( 50 ), ExtResource( 32 ), ExtResource( 37 ), ExtResource( 46 ) ],
+"loop": false,
+"name": "jump",
 "speed": 24.0
 } ]
 
@@ -150,3 +150,6 @@ shape = SubResource( 8 )
 
 [node name="anim_danos" type="AnimationPlayer" parent="."]
 anims/danos = SubResource( 9 )
+
+[connection signal="area_entered" from="jump" to="." method="_on_jump_area_entered"]
+[connection signal="area_exited" from="jump" to="." method="_on_jump_area_exited"]
