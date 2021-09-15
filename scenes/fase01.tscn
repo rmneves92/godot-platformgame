@@ -282,8 +282,9 @@ position = Vector2( 0.440125, 31.8351 )
 shape = SubResource( 16 )
 
 [node name="plataforma" type="StaticBody2D" parent="."]
-position = Vector2( 425.714, 203.957 )
+position = Vector2( 634.928, 104.623 )
 script = ExtResource( 23 )
+lado = -1
 
 [node name="sprite" type="Sprite" parent="plataforma"]
 texture = ExtResource( 22 )
@@ -295,6 +296,23 @@ shape = SubResource( 17 )
 [node name="area_plataforma" type="Area2D" parent="plataforma"]
 
 [node name="shape" type="CollisionShape2D" parent="plataforma/area_plataforma"]
+position = Vector2( 0.661499, -1.32301 )
+shape = SubResource( 18 )
+
+[node name="plataforma2" type="StaticBody2D" parent="."]
+position = Vector2( 425.714, 203.957 )
+script = ExtResource( 23 )
+
+[node name="sprite" type="Sprite" parent="plataforma2"]
+texture = ExtResource( 22 )
+
+[node name="shape" type="CollisionShape2D" parent="plataforma2"]
+position = Vector2( 0.661499, 0.882004 )
+shape = SubResource( 17 )
+
+[node name="area_plataforma" type="Area2D" parent="plataforma2"]
+
+[node name="shape" type="CollisionShape2D" parent="plataforma2/area_plataforma"]
 position = Vector2( 0.661499, -1.32301 )
 shape = SubResource( 18 )
 
