@@ -252,7 +252,7 @@ format = 1
 tile_data = PoolIntArray( 524285, 0, 0, 458755, 0, 0, 458759, 0, 0 )
 
 [node name="player" parent="." instance=ExtResource( 10 )]
-position = Vector2( 374.689, 470.741 )
+position = Vector2( 911.072, 277.378 )
 
 [node name="inimigos" type="Node2D" parent="."]
 
@@ -302,7 +302,6 @@ shape = SubResource( 18 )
 [node name="plataforma2" type="StaticBody2D" parent="."]
 position = Vector2( 761.069, 121.936 )
 script = ExtResource( 23 )
-lado = -1
 
 [node name="sprite" type="Sprite" parent="plataforma2"]
 texture = ExtResource( 22 )

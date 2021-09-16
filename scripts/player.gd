@@ -35,7 +35,7 @@ func _physics_process(delta):
 	
 	# Seguir a plataforma
 	if dir == 0:
-		if plataforma:
+		if plataforma and get_parent().get_node(nome_plataforma).movendo:
 			velocidade.x = get_parent().get_node(nome_plataforma).vel * 1.25
 		
 		
@@ -95,18 +95,15 @@ func _physics_process(delta):
 func jump():
 	velocidade.y = -jump_force
 	
-func receber_dano():
-	# Entrar do estado de dano
-	
+func receber_dano(dir):
 	danos = true
+	
+	velocidade.x = dir * 1000;
 	$anim_danos.play("danos")
 	yield($anim_danos, "animation_finished")
 	
-	# Sair do estado de dano
 	danos = false
-		
 	
-
 
 func _on_jump_area_entered(area):
 	if area.get_parent().is_in_group("plat"):

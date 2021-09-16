@@ -19,13 +19,6 @@ func _process(delta):
 			scale.x = 1 
 			position.x -= velocidade * delta
 
-
-func _on_inimigo1_area_entered(area):
-	if area.name == "jump" and  area.get_parent().danos == false:
-		area.get_parent().jump()
-		$anim.play("die")
-		die()
-
 func die():
 	position.y -= 10
 	vivo = false
@@ -33,10 +26,19 @@ func die():
 	$shape.queue_free()
 	yield($anim, "animation_finished")
 	queue_free()
-	
 
-
+func _on_inimigo1_area_entered(area):
+	if area.name == "jump" and  area.get_parent().danos == false:
+		area.get_parent().jump()
+		$anim.play("die")
+		die()
+		
 func _on_inimigo1_body_entered(body):
 	if body.name == "player":
-		body.get_node("anim_danos").play("danos")
-		body.receber_dano()
+		if !body.danos:
+			if global_position.x > body.global_position.x:
+				body.receber_dano(-1)
+				
+			else:
+				body.receber_dano(1)
+#

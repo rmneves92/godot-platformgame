@@ -34,5 +34,10 @@ func die():
 	
 func _on_inimigo2_body_entered(body):
 	if body.name == "player":
-		body.get_node("anim_danos").play("danos")
-		body.receber_dano()
+		if !body.danos:
+			if global_position.x > body.global_position.x:
+				body.receber_dano(-1)
+				
+			else:
+				body.receber_dano(1)
+#
