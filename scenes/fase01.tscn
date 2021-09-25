@@ -388,7 +388,7 @@ format = 1
 tile_data = PoolIntArray( 524285, 0, 0, 458755, 0, 0, 458759, 0, 0 )
 
 [node name="player" parent="." instance=ExtResource( 10 )]
-position = Vector2( 911.072, 277.378 )
+position = Vector2( 507.113, 464.952 )
 
 [node name="inimigos" type="Node2D" parent="."]
 

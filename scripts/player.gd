@@ -8,9 +8,16 @@ var speed = 400
 
 var is_jumping = false
 var jump_force = 1200
-var jump_count = 2
+var jump_count = 1
+var pulo_duplo = false
 
 var danos = false
+
+# Itens de fase
+var engrenagem = false
+var energia = false
+
+
 
 func _ready():
 	pass
@@ -56,7 +63,10 @@ func _physics_process(delta):
 	# Reset pulos
 	if is_on_floor():
 		is_jumping = false
-		jump_count = 2
+		if pulo_duplo:
+			jump_count = 2
+		else:
+			jump_count = 1
 		
 	# Smoke
 	if dir != 0 and is_on_floor():
